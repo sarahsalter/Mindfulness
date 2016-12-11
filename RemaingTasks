@@ -1,0 +1,17 @@
+** TO DO LIST ** 
+
+1. Create a widget for new patients to create their username and password to access the Mindfulness App.
+
+2. Create a GoogleSheet to save username and passwords. 
+
+3. Create a way to automatically save info about their session to the GoogleSheet.
+
+4. Create a way for the database to automatically update as registers new patients with unique usernames and passwords.  
+
+5. Determine a way to avoid users from having the same username.  
+
+6. Figure out a way to give researchers access to all of the data.
+
+7. Determine a way to display the data nicely similar to the FitBit Sleep Analysis plots.
+
+8. Add gifs to App for patients to watch as the App audio is playing.  
