@@ -12,6 +12,6 @@
 
 6th step: Load ui.R and server.R in R.
 
-7th step: In the command line type runApp(), where you will be prompted with a Login Widget asking for a username & password.
+7th step: In the command line type runApp(), where you will be prompted with a Login Widget.
 
 8th step: Fill in the following information: {Username = 'USER' , PASSWORD = '12345678'}
