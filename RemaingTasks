@@ -2,6 +2,8 @@
 
 1. Create a widget for new patients to create their username and password to access the Mindfulness App.
 
+      a. Reacting to User Input--- https://shiny.rstudio.com/articles/dynamic-ui.html 
+
 2. Create a GoogleSheet to save username and passwords. 
 
 3. Create a way to automatically save info about their session to the GoogleSheet.
