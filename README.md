@@ -10,7 +10,7 @@
 
 5th step: Put all audio files and remaining files from the Code folder in the 'www' folder.
 
-6th step: Load ui.R and server.R in R.
+6th step: Load ui.R and server.R in R-Studio.
 
 7th step: In the command line type runApp(), where you will be prompted with a Login Widget.
 
