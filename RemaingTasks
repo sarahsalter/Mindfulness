@@ -6,7 +6,7 @@
 
 3. Create a way to automatically save info about their session to the GoogleSheet.
 
-4. Create a way for the database to automatically update as registers new patients with unique usernames and passwords.  
+4. Create a way for the database to automatically update as it registers new patients with unique usernames and passwords.  
 
 5. Determine a way to avoid users from having the same username.  
 
