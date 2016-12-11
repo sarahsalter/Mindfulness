@@ -14,8 +14,9 @@
 
 7th step: In the command line type runApp(), where you will be prompted with a Login Widget.
 
-8th step: Fill in the following information: {Username = 'USER' , PASSWORD = '12345678'}
-                                             {Username = 'Matt' , PASSWORD = 'Matt'}
-                                             {Username = 'Sarah' , PASSWORD = 'Sarah'}
+8th step: Fill in the following information: 
+  a. {Username = 'USER' , PASSWORD = '12345678'}
+  b. {Username = 'Matt' , PASSWORD = 'Matt'}
+  c. {Username = 'Sarah' , PASSWORD = 'Sarah'}
                                              
 9th step: Once successfully logged in you will brought to the app containing the audio files
