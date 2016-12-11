@@ -16,10 +16,10 @@
 
 8th step: Fill in the following information: 
 
-  a. {Username = 'USER' , PASSWORD = '12345678'}
+    a. {Username = 'USER' , PASSWORD = '12345678'}
   
-  b. {Username = 'Matt' , PASSWORD = 'Matt'}
+    b. {Username = 'Matt' , PASSWORD = 'Matt'}
   
-  c. {Username = 'Sarah' , PASSWORD = 'Sarah'}
+    c. {Username = 'Sarah' , PASSWORD = 'Sarah'}
                                              
 9th step: Once successfully logged in you will brought to the app containing the audio files
