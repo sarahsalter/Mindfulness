@@ -14,7 +14,7 @@
 
 7th step: In the command line type runApp(), where you will be prompted with a Login Widget.
 
-8th step: Fill in the following information: 
+8th step: Fill in one of the following usernames and passwords: 
 
     a. {Username = 'USER' , PASSWORD = '12345678'}
   
