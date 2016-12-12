@@ -17,3 +17,11 @@
 7. Determine a way to display the data nicely similar to the FitBit Sleep Analysis plots.
 
 8. Add gifs to App for patients to watch as the App audio is playing.  
+
+9. Fix the audio tag titles so that we specify which is 5 minutes & which is 10 minutes.  
+   Possibly create two separate titles.
+           
+10. Update Matt's most recent code with functions & the volume adjusters.  
+
+11. Determine why after running the app I am getting an 'ERROR: [on_request_read] connection reset by peer' error showing up
+    in my R console.
