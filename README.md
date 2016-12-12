@@ -23,3 +23,8 @@
     c. {Username = 'Sarah' , PASSWORD = 'Sarah'}
                                              
 9th step: Once successfully logged in you will brought to the app containing the audio files
+
+10th step: Fix the audio tag titles so that we specify which is 5 minutes & which is 10 minutes.  
+           Possibly create two separate titles.
+           
+11th step: Update Matt's most recent code with functions & the volume adjusters.  
