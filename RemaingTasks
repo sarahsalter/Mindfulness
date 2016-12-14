@@ -25,3 +25,7 @@
 
 11. Determine why after running the app I am getting an 'ERROR: [on_request_read] connection reset by peer' error showing up
     in my R console.
+    
+12. Need to add in features that avoid the same usernames/passwords.
+
+13. Need to determine if there is a reason for audio play lag. 
