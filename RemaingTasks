@@ -31,3 +31,6 @@
 13. Need to determine if there is a reason for audio play lag. 
 
 14. Add Matt's Google key that removes the permission to access google sheets pop-up button.  
+
+15. Fix the issue where if people do not have access to the google sheet we will automatically grant them 
+access so that we can track their usage. 
