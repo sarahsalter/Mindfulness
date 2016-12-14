@@ -1,105 +1,79 @@
-library(shiny)
-library(datasets)
+
+library("shiny")
+library("shinyjs")
+library("readr")
+library("dplyr")
+library("googlesheets")
+library("lubridate")
+library("datasets")
+
+# CODE FROM ss
+
+# ENCRYPTION INFORMATION
+
 Logged = FALSE;
-PASSWORD <- data.frame(Name = c("USER","Matt","Sarah"), 
-                       Password = c("25d55ad283aa400af464c76d713c07ad",
-                                    "7c1f90bd9bdc70cc059640a7a6209389",
-                                    "28e5481a80aa2bd18c8cf35d0495980a"))
+PASSWORD <- data.frame(Name = c("Bob","Matt","Sarah","John","Nattyboh","Johnnyhops","bob"), 
+                       Password = c("2fc1c0beb992cd7096975cfebf9d5c3b",  # Bob
+                                    "7c1f90bd9bdc70cc059640a7a6209389",  # Matt
+                                    "28e5481a80aa2bd18c8cf35d0495980a",  # Sarah
+                                    "61409aa1fd47d4a5332de23cbf59a36f",  # John
+                                    "25d55ad283aa400af464c76d713c07ad",  # 12345678 
+                                    "1de6647f72fe23f908e815385dd6a28a",  # Hopkins
+                                    "9f9d51bc70ef21ca5c14f307980a29d8")) # bob
 # Define server logic required to summarize and view the selected dataset
-shinyServer(function(input, output) {
-  source("www/Login.R",  local = TRUE)
+
+
+# need a better way to authenticate google sheets.
+
+data <- gs_title("mindfullness")
+
+## mc BELOW functions dealing with javascript
+
+
+write_date <- function(user, file, action, date, h, m, s){
+  # attempt to store data to a google sheet. 
+  
+  new_data <- c(user, file, action, date, h, m, s)
+  
+  data %>%
+    gs_add_row(ws = 1, new_data)
+}     
+
+
+shinyServer(function(input, output, session) {
+  ## ss below
+  source("rscripts/Login.R",  local = TRUE)
+  
+  ## mc below
+  ## ss edited: sourcing the Login.R script grab the username entered into the Login widget 
+  output$results = renderPrint({
+    as.data.frame(input$plays_r, input$userName)
+  })
+  
+  
+  
+  
+  observeEvent(input$plays_r, {
+    write_date(user = input$userName[1], file = input$plays_r[1], 
+               action = "play", date = as.character(today()),
+               h = hour(ymd_hms(now())), m = minute(ymd_hms(now())),
+               s = second(ymd_hms(now())))
+  })
+  observeEvent(input$pause_r, {
+    write_date(user = input$userName[1] , file = input$pause_r[1], 
+               action = "pause", date = as.character(today()),
+               h = hour(ymd_hms(now())), m = minute(ymd_hms(now())),
+               s = second(ymd_hms(now())))
+  })
+  
+  # ss below
   
   observe({
     if (USER$Logged == TRUE) {
-      output$obs <- renderUI({
-        
-        
-        # Added the original UI R-Script here--- renderUI allows the login to be displayed first
-        # Then after login the audio files are displayed 
-        fluidPage(
-          useShinyjs(),
-          # Application title
-          titlePanel("Be mindful"),
-          
-          # Sidebar with a slider input for number of bins
-          navlistPanel(
-            tabPanel("Well Wishes",
-                     mainPanel("Well Wishes Audio Recordings", 
-                               fluidRow(
-                                 tags$audio(id = "Audio1", src = "well_wish_5.mp3", 
-                                            type = "audio/mp3", 
-                                            controls = F,
-                                            onplaying = "playCounter()"
-                                 )
-                               ), # add js
-                               
-                               fluidRow(
-                                 tags$audio(src = "well_wish_10.mp3", 
-                                            type = "audio/mp3", 
-                                            controls = T,
-                                            onplaying = "pauseCounter()")))
-            ),
-            
-            
-            tabPanel("Self Kindness",
-                     mainPanel("Self Kindness Audio Recordings", 
-                               fluidRow(
-                                 tags$audio(src = "self_kindness_5.mp3", 
-                                            type = "audio/mp3", 
-                                            controls = T,
-                                            onended = "endCounter()")
-                               ), # add js
-                               fluidRow(
-                                 tags$audio(src = "self_kindness_10.mp3", 
-                                            type = "audio/mp3", 
-                                            controls = T)
-                               )
-                     )
-            ),
-            
-            tabPanel("Just Breathe and Be",
-                     mainPanel("Breathe & Be Audio Recordings", 
-                               fluidRow(
-                                 tags$audio(src = "NICU_5_mins_Just_breathe_and_be.mp3", 
-                                            type = "audio/mp3", 
-                                            controls = T,
-                                            onended="rscripts/record.R")
-                               ), # add js
-                               fluidRow(
-                                 tags$audio(src = "NICU_10mins_Just_breathe_and_be.mp3", 
-                                            type = "audio/mp3", 
-                                            controls = T)
-                               )
-                     )
-            ),
-            
-            tabPanel("Arriving",
-                     mainPanel("Arriving Audio Recordings", 
-                               fluidRow(
-                                 tags$audio(src = "NICU_Arriving_5min.mp3", 
-                                            type = "audio/mp3", 
-                                            controls = T,
-                                            onended="rscripts/record.R")
-                               ), # add js
-                               fluidRow(
-                                 tags$audio(src = "NICU_Arriving_10mins.mp3", 
-                                            type = "audio/mp3", 
-                                            controls = T)
-                               )
-                     )
-            )
-            
-            
-          )
-          
-          #Removed the code that was here---- Not sure what it was for 
-          )
-        
-        
-      })
-
-      
-      
+      output$obs <- renderUI({ page })
     }
   })
-})
+}) 
+
+
+
